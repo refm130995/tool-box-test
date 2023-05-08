@@ -43,7 +43,7 @@ Para ejecutar el proyecto con Docker Compose, sigue estos pasos:
 
 Para ejecutar las pruebas del proyecto, sigue estos pasos:
 
-1. En el directorio `backend`, ejecuta el comando `npm run test`.
+1. En el directorio `backend`, ejecuta el comando `"test-mocha" o "test-jest" `.
 2. En el directorio `frontend`, ejecuta el comando `npm run test`.
 
 ## Autor
