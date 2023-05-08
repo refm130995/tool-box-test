@@ -1,0 +1,14 @@
+# Imagen base con Node.js preinstalado
+FROM node:14.17-alpine
+
+# Crear directorio de trabajo y copiar archivos
+WORKDIR /app
+COPY package.json yarn.lock ./
+RUN yarn install
+COPY . .
+
+# Exponer el puerto de la API
+EXPOSE 3001
+
+# Iniciar la aplicación
+CMD ["yarn", "start"]

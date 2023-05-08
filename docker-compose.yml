@@ -1,0 +1,11 @@
+version: '3'
+services:
+  frontend:
+    build: ./test-toolbox-frontend
+    ports:
+      - '80:80'
+      - '3000:3000'
+  backend:
+    build: ./test-toolbox-api
+    ports:
+      - '3001:3001'

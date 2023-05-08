@@ -1,0 +1,17 @@
+# Imagen base con Node.js preinstalado
+FROM node:14.17-alpine as build
+
+# Crear directorio de trabajo y copiar archivos
+WORKDIR /app
+COPY package.json yarn.lock ./
+RUN yarn install
+COPY . .
+
+# Construir la aplicación React para producción
+RUN yarn build
+
+# Imagen base para servir archivos estáticos con Nginx
+FROM nginx:1.21-alpine
+COPY --from=build /app/build /usr/share/nginx/html
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
